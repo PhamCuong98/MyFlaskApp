@@ -1,0 +1,25 @@
+{% extends 'layout.html' %} 
+
+{% block body %} 
+    <h1>Dashboard <small style="color: rgb(112, 177, 112);">Wellcome {{session.username}}</small></h1>
+    <hr>
+
+    <table class="table table-striped">
+        <tr>
+            <th>STT</th>
+            <th>username</th>
+            <th>daytime</th>
+            <th>title</th>
+            <th>body</th>
+        </tr>
+        {% for article in articles %} 
+            <tr>
+                <td>{{article.0}}</td>
+                <td>{{article.1}}</td>
+                <td>{{article.2}}</td>
+                <td>{{article.3}}</td>
+                <td>{{article.4}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

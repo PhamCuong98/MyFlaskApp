@@ -1,0 +1,26 @@
+{% extends 'layout.html' %} 
+
+{% block body %} 
+
+    <h1>Project {{id}}</h1>
+    <hr>
+    <div class="upload hint">
+        <p>Các định dạng hỗ trợ: JPG, PNG, JPEG</p>
+    </div>
+    <form action="/project/1" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <input class="form-control" type="file" id="formFile" name="formFile" >
+        </div>
+        <p><input type="submit" class="btn btn-primary" value="Gửi file"></p>
+    </form>
+
+    <div>
+        {% if client_image %} 
+        <div style="text-align: center;">
+            <img style="text-align: left;" class="img-thumbnail" src="{{ url_for('static', filename=client_image ) }}" alt="Ảnh xử lý">
+            <img style="text-align: right;" class="img-thumbnail" src="{{ url_for('static', filename=result_image ) }}" alt="Ảnh đã phân tích">
+        </div>
+        <div style="text-align: center;"><p>Kết quả: {{licenses}}</p></div> 
+        {% endif %} 
+    </div>
+{% endblock %}

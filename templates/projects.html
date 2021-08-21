@@ -1,0 +1,12 @@
+{% extends 'layout.html' %} 
+
+{% block body %} 
+    <h1>Projects</h1>
+    <ul class="list-group">
+        {% for project in projects %} 
+            <li class="list-group-item"> 
+                <a href="project/{{project.id}}"> {{project.title}} </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

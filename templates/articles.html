@@ -1,0 +1,35 @@
+{% extends 'layout.html' %} 
+
+{% block body %} 
+    <h1>Articles</h1>
+    <p>Cảm ơn bạn đã lướt qua demo của mình. Bạn có thể dành chút thời gian nhận xét - đánh giá để mình hoàn thiện hơn.</p>
+    <form method="POST" action="">
+        <p><input type="submit" class="btn btn-primary mb-3" value="Thêm review" name="add_article"></p>
+    </form>
+
+    <hr>
+
+    <table class="table table-striped">
+        <tr>
+            <th>STT</th>
+            <th>username</th>
+            <th>daytime</th>
+            <th>title</th>
+            <th>body</th>
+        </tr>
+        {% for article in articles %} 
+            <tr>
+                <td>{{article.0}}</td>
+                <td>{{article.1}}</td>
+                <td>{{article.2}}</td>
+                <td>{{article.3}}</td>
+                <td>{{article.4}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% if result_search >=3 %}
+    <form method="POST" action="">
+        <p><input type="submit" class="btn btn-primary mb-3" value="Xem thêm review" name="show_more"></p>
+    </form>
+    {% endif %}
+{% endblock %}
